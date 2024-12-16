@@ -1,0 +1,33 @@
+.player-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.audio-player {
+    text-align: center;
+    width: 300px;
+}
+
+.song-artwork {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.song-info {
+    margin-bottom: 20px;
+}
+
+.controls button {
+    margin: 5px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.elapsed-time {
+    margin-top: 10px;
+    font-size: 14px;
+}

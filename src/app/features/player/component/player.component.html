@@ -1,0 +1,27 @@
+<div class="player-container">
+    <div class="audio-player">
+        <img [src]="artworkUrl || defaultArtwork" alt="Song Artwork" class="song-artwork" />
+        <div class="song-info">
+            <h3>{{ songTitle || 'Unknown Title' }}</h3>
+            <p>{{ songArtist || 'Unknown Artist' }}</p>
+        </div>
+
+        <audio #audioPlayer (timeupdate)="updateElapsedTime(audioPlayer)" (loadedmetadata)="loadMetadata(audioPlayer)">
+            <source [src]="streamUrl" type="audio/mpeg" />
+            Your browser does not support the audio element.
+        </audio>
+
+        <div class="controls">
+            <button (click)="playPauseAudio(audioPlayer)">
+                {{ isPlaying ? 'Pause' : 'Play' }}
+            </button>
+            <button (click)="toggleMute(audioPlayer)">
+                {{ isMuted ? 'Unmute' : 'Mute' }}
+            </button>
+        </div>
+
+        <div class="elapsed-time">
+            <p>Elapsed Time: {{ elapsedTime }}</p>
+        </div>
+    </div>
+</div>
