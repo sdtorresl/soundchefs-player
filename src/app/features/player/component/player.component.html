@@ -1,27 +1,39 @@
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
 <div class="player-container">
     <div class="audio-player">
-        <img [src]="artworkUrl || defaultArtwork" alt="Song Artwork" class="song-artwork" />
-        <div class="song-info">
-            <h3>{{ songTitle || 'Unknown Title' }}</h3>
-            <p>{{ songArtist || 'Unknown Artist' }}</p>
+        <div id="cover">
+            <img [src]="artworkUrl" appImgFallback='assets/no-cover.png' alt="Song Artwork" class="song-artwork" />
         </div>
 
-        <audio #audioPlayer (timeupdate)="updateElapsedTime(audioPlayer)" (loadedmetadata)="loadMetadata(audioPlayer)">
+        <div class="song-info">
+            <h3>{{ songTitle | decodeHtml }}</h3>
+            <p>{{ songArtist | decodeHtml }}</p>
+        </div>
+
+        <audio #audioPlayer (timeupdate)="updateElapsedTime()">
             <source [src]="streamUrl" type="audio/mpeg" />
             Your browser does not support the audio element.
         </audio>
 
         <div class="controls">
-            <button (click)="playPauseAudio(audioPlayer)">
-                {{ isPlaying ? 'Pause' : 'Play' }}
-            </button>
-            <button (click)="toggleMute(audioPlayer)">
-                {{ isMuted ? 'Unmute' : 'Mute' }}
-            </button>
+            <input id="volume-slider" type="range" min="0" max="1" step="0.01" [value]="volume"
+                (input)="changeVolume($event)" />
+
+            <div class="action-buttons">
+                <span (click)="playPauseAudio()" class="material-symbols-outlined clickable">
+                    {{ isPlaying ? 'pause_circle' : 'play_circle' }}
+                </span>
+
+                <span (click)="toggleMute()" class="material-symbols-outlined clickable">
+                    {{ isMuted ? 'volume_up' : 'volume_off' }}
+                </span>
+            </div>
         </div>
 
         <div class="elapsed-time">
-            <p>Elapsed Time: {{ elapsedTime }}</p>
+            <p>{{ elapsedTime | elapsedTime }}</p>
         </div>
     </div>
 </div>

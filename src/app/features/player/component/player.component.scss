@@ -1,33 +1,174 @@
+$primary-color: #E49C30;
+$background-slider: white;
+
 .player-container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     flex-direction: column;
+    background-image: url('../../../../../public/assets/bg.png');
+    min-height: 100vh;
+    margin: 0;
+    padding: 0 5rem;
+    z-index: 1;
+    position: relative;
+
+    &::before {
+        position: absolute;
+        left: 2rem;
+        bottom: 2rem;
+        width: 220px;
+        height: 190px;
+        background-image: url("../../../../../public/assets/logo_pdm.png");
+        background-size: auto 190px;
+        background-repeat: no-repeat;
+        content: '';
+        z-index: 0;
+    }
+
+    synchronized &::after {
+        content: 'Powered by SoundChefs';
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        color: white;
+    }
 }
 
 .audio-player {
     text-align: center;
-    width: 300px;
+    min-width: 600px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 3rem;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.song-artwork {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
+$offset: 7px;
+
+#cover {
     margin-bottom: 10px;
+    position: relative;
+
+    .song-artwork {
+        width: 100%;
+        max-width: 180px;
+        height: auto;
+        position: relative;
+        border-radius: 10px;
+    }
+
+    &::before {
+        position: absolute;
+        top: -$offset;
+        bottom: $offset;
+        left: $offset;
+        right: -$offset;
+        background-color: $primary-color;
+        border-radius: 10px;
+        content: '';
+        opacity: 0.5;
+    }
 }
+
 
 .song-info {
     margin-bottom: 20px;
+    color: $primary-color;
+    font-size: 1.2rem;
+    max-width: 300px;
 }
 
-.controls button {
-    margin: 5px;
-    padding: 10px;
-    font-size: 16px;
+.controls {
+    display: flex;
+    flex-direction: column;
+
+    span {
+        margin: 5px;
+        padding: 10px;
+        font-size: 48px;
+        cursor: pointer;
+    }
+
+
+    /*********** Baseline, reset styles ***********/
+    #volume-slider {
+        -webkit-appearance: none;
+        appearance: none;
+        background: transparent;
+        cursor: pointer;
+        width: 25rem;
+
+        // Removes default focus
+        &:focus {
+            outline: none;
+        }
+
+        /******** Chrome, Safari, Opera and Edge Chromium styles ********/
+        // slider track
+        &::-webkit-slider-runnable-track {
+            background-color: $background-slider;
+            border-radius: 0.5rem;
+            height: 0.35rem;
+        }
+
+        // slider thumb
+        &::-webkit-slider-thumb {
+            -webkit-appearance: none; // Override default look
+            appearance: none;
+            margin-top: -8px; // Centers thumb on the track
+            background-color: $primary-color;
+            border-radius: 1rem;
+            height: 1.5rem;
+            width: 1.5rem;
+        }
+
+        &:focus::-webkit-slider-thumb {
+            outline: 3px solid $primary-color;
+            outline-offset: 0.125rem;
+        }
+
+        /*********** Firefox styles ***********/
+        // slider track
+        &::-moz-range-track {
+            background-color: $background-slider;
+            border-radius: 0.5rem;
+            height: 0.35rem;
+        }
+
+        // slider thumb
+        &::-moz-range-thumb {
+            background-color: $primary-color;
+            border: none; // Removes extra border that FF applies
+            border-radius: 1rem;
+            height: 1.5rem;
+            width: 1.5rem;
+        }
+
+        &:focus::-moz-range-thumb {
+            outline: 3px solid $primary-color;
+            outline-offset: 0.125rem;
+        }
+
+        &::-moz-range-progress {
+            background-color: $primary-color;
+            border-radius: 0.5rem;
+
+            height: 0.35rem;
+        }
+    }
+
+
+    .action-buttons {
+        display: flex;
+        justify-content: center;
+    }
+
 }
 
 .elapsed-time {
-    margin-top: 10px;
     font-size: 14px;
 }
