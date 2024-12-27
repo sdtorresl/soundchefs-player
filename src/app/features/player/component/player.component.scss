@@ -1,3 +1,5 @@
+@import '../../../styles/mixins';
+
 $primary-color: #E49C30;
 $background-slider: white;
 
@@ -7,11 +9,16 @@ $background-slider: white;
     align-items: start;
     flex-direction: column;
     background-image: url('../../../../../public/assets/bg.png');
+    background-size: cover;
     min-height: 100vh;
     margin: 0;
     padding: 0 5rem;
     z-index: 1;
     position: relative;
+
+    @include respond-to(small) {
+        padding: 0 1rem;
+    }
 
     &::before {
         position: absolute;
@@ -24,6 +31,12 @@ $background-slider: white;
         background-repeat: no-repeat;
         content: '';
         z-index: 0;
+
+        @include respond-to(small) {
+            width: 50px;
+            height: 40px;
+            background-size: 50px 100%;
+        }
     }
 
     synchronized &::after {
@@ -45,6 +58,13 @@ $background-slider: white;
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+    z-index: 2;
+
+    @include respond-to(small) {
+        min-width: 100px;
+        width: 100%;
+    }
 }
 
 $offset: 7px;
@@ -101,6 +121,10 @@ $offset: 7px;
         background: transparent;
         cursor: pointer;
         width: 25rem;
+
+        @include respond-to(small) {
+            width: 100%;
+        }
 
         // Removes default focus
         &:focus {
