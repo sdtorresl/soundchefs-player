@@ -27,7 +27,7 @@
                 </span>
 
                 <span (click)="toggleMute()" class="material-symbols-outlined clickable">
-                    {{ isMuted ? 'volume_up' : 'volume_off' }}
+                    {{ isMuted ? 'volume_off' : 'volume_up' }}
                 </span>
             </div>
         </div>
@@ -39,6 +39,7 @@
 
     <div id="powered-by">
         <p>Powered by</p>
-        <img src="assets/sound-chefs-white.png" alt="">
+        <app-equalizer [playing]="isPlaying"></app-equalizer>
+        <img src="assets/sound-chefs-text-white.png" alt="">
     </div>
 </div>

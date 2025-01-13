@@ -1,0 +1,6 @@
+<div class="bar-container">
+    <div *ngFor="let bar of bars; let i = index" class="bar" [ngClass]="{ 'white': i >= 3 }">
+        <div *ngFor="let sqr of bar.squares" class="sqr"></div>
+    </div>
+
+</div>

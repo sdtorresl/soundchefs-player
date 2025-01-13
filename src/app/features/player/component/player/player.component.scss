@@ -1,4 +1,4 @@
-@import '../../../styles/mixins';
+@import '../../../../styles/mixins';
 
 $primary-color: #E49C30;
 $background-slider: white;
@@ -8,7 +8,7 @@ $background-slider: white;
     justify-content: center;
     align-items: start;
     flex-direction: column;
-    background-image: url('../../../../../public/assets/bg.png');
+    background-image: url('../../../../../../public/assets/bg.png');
     background-size: cover;
     min-height: 100vh;
     margin: 0;
@@ -24,13 +24,13 @@ $background-slider: white;
         position: absolute;
         left: 2rem;
         bottom: 2rem;
-        width: 190px;
-        height: 160px;
-        background-size: auto 160px;
+        width: 115px;
+        height: 100px;
+        background-size: auto 100px;
         background-repeat: no-repeat;
         content: "";
-        background-image: url("../../../../../public/assets/logo_pdm.png");
         z-index: 0;
+        background-image: url("../../../../../../public/assets/logo_pdm.png");
 
         @include respond-to(small) {
             width: 50px;

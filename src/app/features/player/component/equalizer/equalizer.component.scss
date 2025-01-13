@@ -1,0 +1,35 @@
+$sqr-size: 4px;
+$primary-color: #f22f2e;
+$secondary-color: white;
+$sqr-qty: 8;
+$gap-bar: $sqr-size * 0.5;
+
+.bar-container {
+    display: flex;
+    gap: $sqr-size * 0.8;
+    margin-bottom: 5px;
+
+    .bar {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: $gap-bar;
+        width: $sqr-size;
+        height: ($sqr-size * $sqr-qty) + (($sqr-qty - 1) * $gap-bar);
+
+        .sqr {
+            background-color: $primary-color;
+            height: $sqr-size * 0.5;
+            width: $sqr-size;
+        }
+
+        &.white {
+            .sqr {
+                background-color: $secondary-color;
+                height: $sqr-size * 0.5;
+                width: $sqr-size;
+            }
+        }
+
+    }
+}

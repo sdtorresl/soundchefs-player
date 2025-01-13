@@ -1,8 +1,9 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { ImgFallbackDirective } from '../../../shared/directives/img-fallback.directive';
-import { DecodeHtmlPipe } from '../../../shared/pipes/decode-html.pipe';
-import { ElapsedTimePipe } from '../../../shared/pipes/elapsed-time.pipe';
-import { FetchMetadataUseCase } from '../usecases/get-metadata-usecase';
+import { ImgFallbackDirective } from '../../../../shared/directives/img-fallback.directive';
+import { DecodeHtmlPipe } from '../../../../shared/pipes/decode-html.pipe';
+import { ElapsedTimePipe } from '../../../../shared/pipes/elapsed-time.pipe';
+import { FetchMetadataUseCase } from '../../usecases/get-metadata-usecase';
+import { EqualizerComponent } from '../equalizer/equalizer.component';
 
 @Component({
   selector: 'app-player',
@@ -11,6 +12,7 @@ import { FetchMetadataUseCase } from '../usecases/get-metadata-usecase';
     ElapsedTimePipe,
     DecodeHtmlPipe,
     ImgFallbackDirective,
+    EqualizerComponent,
   ],
   templateUrl: './player.component.html',
   styleUrl: './player.component.scss'
