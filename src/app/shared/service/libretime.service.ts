@@ -8,7 +8,7 @@ import { catchError, Observable, throwError } from 'rxjs';
 })
 export class LibretimeService {
 
-  private apiUrl = 'https://projectdm.innovaciones.co/api/live-info';
+  private apiUrl = 'https://a2.asurahosting.com/api/nowplaying/project_dm';
 
   constructor(private http: HttpClient) { }
 

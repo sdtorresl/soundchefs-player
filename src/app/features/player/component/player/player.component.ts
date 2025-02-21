@@ -19,7 +19,7 @@ import { EqualizerComponent } from '../equalizer/equalizer.component';
 })
 export class PlayerComponent {
 
-  streamUrl = 'https://projectdm.innovaciones.co:8000/main';
+  streamUrl = 'https://a2.asurahosting.com:6460/radio.mp3';
 
   @ViewChild('audioPlayer') audioPlayer!: ElementRef<HTMLAudioElement>;
 

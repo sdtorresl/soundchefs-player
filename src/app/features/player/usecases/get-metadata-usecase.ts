@@ -19,11 +19,11 @@ export class FetchMetadataUseCase {
     execute(): Observable<SongMetadata> {
         return this.libreTimeService.getLiveInfo().pipe(
             map((data) => {
-                const current = data?.current?.metadata;
+                const current = data?.now_playing?.song;
                 return {
-                    title: current?.track_title || 'Unknown Title',
-                    artist: current?.artist_name || 'Unknown Artist',
-                    artwork: current?.artwork_url || this.defaultArtwork,
+                    title: current?.title || 'Unknown Title',
+                    artist: current?.artist || 'Unknown Artist',
+                    artwork: current?.art || this.defaultArtwork,
                 };
             })
         );
